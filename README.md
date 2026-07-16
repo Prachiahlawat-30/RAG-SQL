@@ -1,200 +1,293 @@
-🤖 RAGSQL – AI Data Analytics Assistant
-An AI-powered Hybrid Data Analytics Assistant that allows users to interact with databases and enterprise documentation using natural language. Instead of writing SQL queries manually, users can simply ask questions in plain English, and the system automatically generates SQL, retrieves relevant context using RAG (Retrieval-Augmented Generation), applies business rules, executes queries, visualizes results, and provides actionable insights.
+# 🤖 AI-Powered Text-to-SQL + RAG Assistant
+
+An intelligent data analytics assistant that combines **Text-to-SQL**, **Retrieval-Augmented Generation (RAG)**, and **Natural Language Querying** to enable users to interact with structured databases and unstructured documents using plain English.
+
+## 🚀 Live Demo
+
+🔗 https://rag-sql-cjbnuwmfmnpes6svg7mgwd.streamlit.app/
+
+---
+
+## 📌 Features
+
+### 🗄️ Text-to-SQL
+- Convert natural language questions into SQL queries.
+- Execute generated SQL against a relational database.
+- Display query results in tabular format.
+- Automatically explain generated SQL queries.
+
+### 📄 RAG-Based Document Question Answering
+- Upload PDF documents.
+- Automatically chunk and embed document content.
+- Store embeddings in a vector database.
+- Retrieve relevant context for user questions.
+- Generate grounded answers from uploaded documents.
+
+### 🔀 Hybrid Query Engine
+- Automatically decides whether a question should be answered using:
+  - Database queries
+  - Document retrieval
+  - Both (Hybrid Mode)
+
+### 📊 AI Insights Generation
+- Generate business insights from query results.
+- Summarize trends and patterns.
+- Provide natural language explanations.
+
+### 🎨 Interactive Streamlit Interface
+- Modern web-based UI.
+- Query history tracking.
+- SQL visibility toggle.
+- Source document references.
+- Real-time response generation.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+User Query
+     │
+     ▼
+ Hybrid Router
+     │
+ ┌───┴────────────┐
+ │                │
+ ▼                ▼
+Text-to-SQL      RAG Pipeline
+ │                │
+ ▼                ▼
+Database      Vector Store
+ │                │
+ └──────┬─────────┘
+        ▼
+  LLM Response
+        ▼
+ Streamlit UI
+```
 
-📌 Project Overview
-RAGSQL is a Streamlit-based web application that combines:
+---
 
-Text-to-SQL for structured database querying
+## 🛠️ Tech Stack
 
-RAG (Retrieval-Augmented Generation) for contextual answers from enterprise docs
+### Frontend
+- Streamlit
 
-Hybrid AI querying that blends structured + unstructured data sources
+### Backend
+- Python
+- SQLAlchemy
 
-Business-rule-aware analytics to ensure compliance and domain-specific logic
+### AI / LLM
+- OpenAI GPT Models
+- LangChain
 
-Interactive visualization for instant insights
+### Retrieval
+- FAISS Vector Store
+- OpenAI Embeddings
 
-This makes it ideal for analysts, researchers, students, and business users who want powerful analytics without needing SQL or deep technical expertise.
+### Document Processing
+- PyPDF
+- LangChain Text Splitters
 
-🚀 Features
-🔹 Natural Language to SQL
-Convert user questions into optimized SQL queries automatically using LLMs.
+### Database
+- SQLite
 
-Example:
+---
 
-Code
-User Input:
-Show top 5 customers by total sales
+## 📂 Project Structure
 
-Generated SQL:
-SELECT customer_name, SUM(amount)
-FROM orders
-GROUP BY customer_name
-ORDER BY SUM(amount) DESC
-LIMIT 5;
-🔹 RAG-Powered Contextual Insights
-Retrieves relevant documentation, manuals, or enterprise knowledge base entries.
+```text
+rag-sql/
+│
+├── frontend.py                # Streamlit UI
+├── hybrid.py                  # Hybrid query routing
+├── main.py                    # SQL generation and execution
+│
+├── rag/
+│   ├── ingest.py              # Document ingestion
+│   ├── retriever.py           # Vector retrieval
+│   └── vector_store.py        # FAISS management
+│
+├── amazon.db                  # Sample database
+├── requirements.txt
+├── pyproject.toml
+└── README.md
+```
 
-Answers questions that require both data + context.
+---
 
-Example: “What were the top 3 products last quarter, and what business rules apply to their pricing?”
+## ⚙️ Installation
 
-🔹 Hybrid AI Querying
-Combines structured SQL results with unstructured text retrieval.
+### Clone Repository
 
-Enables analytics across databases + documents simultaneously.
+```bash
+git clone https://github.com/YOUR_USERNAME/rag-sql.git
+cd rag-sql
+```
 
-Example: “Summarize customer churn trends and include related policy notes.”
+### Create Virtual Environment
 
-🔹 Business-Rule-Aware Querying
-Queries respect compliance, governance, and organizational rules.
+```bash
+python -m venv .venv
+```
 
-Prevents invalid or non-compliant queries.
+### Activate Environment
 
-Example: “Show sales excluding restricted regions.”
+Windows:
 
-🔹 Interactive Data Visualization
-Automatically generates charts from query results:
+```bash
+.venv\Scripts\activate
+```
 
-Bar Charts
+Linux / Mac:
 
-Pie Charts
+```bash
+source .venv/bin/activate
+```
 
-Line Charts
+### Install Dependencies
 
-Scatter Plots
+```bash
+pip install -r requirements.txt
+```
 
-Histograms
+---
 
-🔹 AI-Powered Insights
-Analyzes query results and generates business insights such as:
+## 🔑 Environment Variables
 
-Trends
+Create a `.env` file:
 
-Patterns
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
 
-Outliers
+---
 
-Recommendations
+## ▶️ Run Application
 
-🔹 Query History & Export
-Stores conversation history using Streamlit Session State.
+```bash
+streamlit run frontend.py
+```
 
-Export query results as CSV.
+---
 
-🔹 Dynamic Schema + Knowledge Explorer
-Displays database tables, columns, and structure.
+## 💬 Example Queries
 
-Shows available enterprise documents for RAG queries.
+### Database Questions
 
-🛠️ Tech Stack
-Frontend: Streamlit
+```text
+Show top 10 selling products
+```
 
-Backend: Python
+```text
+What is the total revenue generated last month?
+```
 
-Database: SQLite (future: MySQL, PostgreSQL, SQL Server)
+```text
+List customers who placed more than 5 orders
+```
 
-AI Models: Ollama (Llama 3, Qwen2.5), Hybrid RAG pipeline
+### Document Questions
 
-Data Processing: Pandas
+```text
+Summarize the uploaded PDF
+```
 
-Visualization: Plotly Express
+```text
+What are the key findings in the report?
+```
 
-Database Inspection: SQLAlchemy
+```text
+Explain the methodology section
+```
 
-📊 Workflow
-User uploads SQLite database.
+### Hybrid Questions
 
-Database schema + enterprise docs are extracted.
+```text
+Compare sales data with insights from the uploaded business report
+```
 
-User enters natural language query.
+---
 
-AI converts text into SQL + retrieves context with RAG.
+## 📈 Workflow
 
-SQL executes on database.
+### Database Flow
 
-Results + retrieved docs are merged.
+```text
+Natural Language
+       │
+       ▼
+OpenAI GPT
+       │
+       ▼
+SQL Query
+       │
+       ▼
+Database Execution
+       │
+       ▼
+Results + Insights
+```
 
-Charts + insights are generated.
+### RAG Flow
 
-Business rules applied.
+```text
+PDF Upload
+     │
+     ▼
+Chunking
+     │
+     ▼
+Embedding Generation
+     │
+     ▼
+FAISS Storage
+     │
+     ▼
+Retrieval
+     │
+     ▼
+Answer Generation
+```
 
-Results displayed + export option.
+---
 
-🏗️ System Architecture
-Code
-User
-↓
-Streamlit UI
-↓
-Natural Language Query
-↓
-LLM (Text-to-SQL + RAG)
-↓
-Business Rules Engine
-↓
-SQLite Database + Docs
-↓
-Query Execution + Retrieval
-↓
-Pandas DataFrame
-↓
-Charts + Insights
-↓
-Results Display
-📈 Sample Queries
-Show top 5 customers by sales
+## 🎯 Key Highlights
 
-Summarize revenue trends and include compliance notes
+- Natural Language to SQL Conversion
+- Retrieval-Augmented Generation (RAG)
+- PDF Question Answering
+- Hybrid Database + Document Intelligence
+- OpenAI GPT Integration
+- FAISS Vector Search
+- Streamlit Dashboard
+- Real-Time Analytics
 
-Show monthly sales trend with related documentation
+---
 
-Find repeat customers and attach policy references
+## 🔮 Future Improvements
 
-Show top products and explain pricing rules
+- Multi-Database Support (MySQL, PostgreSQL)
+- Chat History Memory
+- User Authentication
+- Query Optimization Layer
+- CSV and Excel Upload Support
+- Multi-Document Retrieval
+- Source Citations
+- Dashboard Visualizations
 
-🎯 Use Cases
-Business Analytics: Sales, revenue, customer insights
+---
 
-Education: SQL learning + hybrid AI exploration
+## 👩‍💻 Author
 
-Research: Data + document-driven analysis
+**Prachi Ahlawat**
 
-Decision Support: Trend detection, compliance-aware insights
-
-🔮 Future Enhancements
-Multi-database support (MySQL, PostgreSQL, SQL Server)
-
-Dashboard builder
-
-PDF/Report generation
-
-Voice-based queries
-
-Authentication system
-
-Real-time analytics
-
-Multi-user support
-
-👨‍💻 Author
-Prachi Ahlawat
 B.Tech CSE (AI & ML)
-RAGSQL – Hybrid AI Data Analytics Assistant
 
-⭐ Acknowledgements
-Streamlit
+Aspiring AI/LLM Engineer
 
-Pandas
+---
 
-Plotly
+## 📜 License
 
-SQLAlchemy
-
-SQLite
-
-Ollama
-
-Llama 3 / Qwen2.5
-
-Python Community
+This project is licensed under the MIT License.
