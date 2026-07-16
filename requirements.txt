@@ -6,5 +6,5 @@ pypdf
 tiktoken
 streamlit
 pandas
-plotl
+plotly
 sqlalchemy
