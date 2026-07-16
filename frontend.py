@@ -1,7 +1,6 @@
 
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import tempfile
 import os
 import json
@@ -232,9 +231,9 @@ if prompt:
 # ==========================================
 if st.session_state.df is not None:
     df = st.session_state.df
-    tab1, tab2, tab3, tab4 = st.tabs(
+    tab1, tab3, tab4 = st.tabs(
 
-        ["📊 Results", "📈 Charts", "🤖 Insights", "Knowledge Base"]
+        ["📊 Results",  "🤖 Insights", "Knowledge Base"]
 
     )
 
@@ -253,47 +252,7 @@ if st.session_state.df is not None:
             "results.csv",
             "text/csv"
         )
-    with tab2:
-        numeric_cols = df.select_dtypes(
-        include=["number"]
-
-        ).columns
-
-        if (
-            len(df.columns) >= 2
-
-            and len(numeric_cols) > 0
-
-            and len(df) > 1
-        ):
-
-            fig = px.bar(
-                df,
-                x=df.columns[0],
-                y=numeric_cols[0],
-                title="Analysis"
-            )
-
-            st.plotly_chart(
-                fig,
-                width="stretch"
-            )
-
-            fig2 = px.pie(
-                df.head(10),
-                names=df.columns[0],
-                values=numeric_cols[0]
-            )
-
-            st.plotly_chart(
-                fig2,
-                width="stretch"
-            )
-
-        else:
-            st.info(
-                "Not enough numeric data for charts."
-            )
+    
 
     with tab3:
 
