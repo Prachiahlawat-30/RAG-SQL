@@ -4,3 +4,7 @@ langchain-openai
 langchain-community
 pypdf 
 tiktoken
+streamlit
+pandas
+plotl
+sqlalchemy

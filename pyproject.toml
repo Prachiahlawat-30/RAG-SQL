@@ -9,5 +9,4 @@ dependencies = [
     "pandas",
     "plotly",
     "sqlalchemy",
-    "ollama",
 ]
