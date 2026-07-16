@@ -1,7 +1,4 @@
-# hybrid.py
-
-from main import answer_document_question
-from main import generate_sql, execute_sql
+from .main import generate_sql, execute_sql , answer_document_question
 import pandas as pd
 
 

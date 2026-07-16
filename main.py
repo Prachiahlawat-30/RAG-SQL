@@ -228,30 +228,7 @@ def ask_database(question: str, db_path: str):
         "data": df,
         "insights": insights
     }
-
-
-# ==================================================
-# Example Usage
-# ==================================================
-
-if __name__ == "__main__":
-
-    DB_PATH = "amazon.db"
-
-    question = "What are the top 10 products with highest revenue?"
-
-    result = ask_database(
-        question=question,
-        db_path=DB_PATH
-    )
-
-    print("\n" + "=" * 60)
-    print("BUSINESS INSIGHTS")
-    print("=" * 60)
-
-    print(result["insights"])
     
-
 def answer_document_question(question):
 
     docs = retrieve(question)
@@ -310,3 +287,27 @@ Question:
         "answer": answer,
         "sources": sources
     }
+
+
+# ==================================================
+# Example Usage
+# ==================================================
+
+if __name__ == "__main__":
+
+    DB_PATH = "amazon.db"
+
+    question = "What are the top 10 products with highest revenue?"
+
+    result = ask_database(
+        question=question,
+        db_path=DB_PATH
+    )
+
+    print("\n" + "=" * 60)
+    print("BUSINESS INSIGHTS")
+    print("=" * 60)
+
+    print(result["insights"])
+    
+

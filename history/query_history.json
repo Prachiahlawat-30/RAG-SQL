@@ -23,5 +23,15 @@
         "question": "what is self attention",
         "sql": "SELECT * FROM customers;",
         "timestamp": "2026-07-16 14:48:03"
+    },
+    {
+        "question": "Show all customers",
+        "sql": "SELECT * FROM customers;",
+        "timestamp": "2026-07-16 17:39:08"
+    },
+    {
+        "question": "Show all customers",
+        "sql": "SELECT * FROM customers;",
+        "timestamp": "2026-07-16 18:02:57"
     }
 ]
