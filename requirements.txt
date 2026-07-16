@@ -1,7 +1,9 @@
 faiss-cpu
 langchain
 langchain-openai
+openai
 langchain-community
+langchain-core
 pypdf 
 tiktoken
 streamlit
@@ -9,3 +11,4 @@ pandas
 sqlalchemy
 python-dotenv
 langchain-text-splitters
+numpy
