@@ -1,5 +1,5 @@
 [project]
-name = "RAG"
+name = "text-to-sql"
 version = "0.1.0"
 description = "AI Text-to-SQL and RAG Assistant"
 requires-python = ">=3.11,<3.13"
@@ -17,4 +17,9 @@ dependencies = [
     "sqlalchemy",
     "python-dotenv",
     "openai",
+    "numpy",
+    "requests"
 ]
+
+[tool.uv]
+package = false
