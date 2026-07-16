@@ -1,12 +1,20 @@
 [project]
-name = "text-to-sql"
+name = "RAG"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "AI Text-to-SQL and RAG Assistant"
 requires-python = ">=3.11,<3.13"
+
 dependencies = [
+    "faiss-cpu",
+    "langchain",
+    "langchain-openai",
+    "langchain-community",
+    "langchain-text-splitters",
+    "pypdf",
+    "tiktoken",
     "streamlit",
     "pandas",
-    "plotly",
     "sqlalchemy",
+    "python-dotenv",
+    "openai",
 ]
