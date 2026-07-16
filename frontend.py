@@ -6,7 +6,7 @@ import os
 import json
 from datetime import datetime
 from sqlalchemy import create_engine, inspect
-from .hybrid import hybrid_answer
+from hybrid import hybrid_answer
 from .main import generate_sql, execute_sql, generate_insights, answer_document_question
 from rag.ingest import build_vector_store
 
