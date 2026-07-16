@@ -1,10 +1,12 @@
 [project]
 name = "text-to-sql"
 version = "0.1.0"
-description = "AI Text-to-SQL and RAG Assistant"
 requires-python = ">=3.11,<3.13"
 
 dependencies = [
+    "streamlit",
+    "openai",
+    "python-dotenv",
     "faiss-cpu",
     "langchain",
     "langchain-openai",
@@ -12,11 +14,8 @@ dependencies = [
     "langchain-text-splitters",
     "pypdf",
     "tiktoken",
-    "streamlit",
     "pandas",
     "sqlalchemy",
-    "python-dotenv",
-    "openai",
     "numpy",
     "requests"
 ]
