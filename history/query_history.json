@@ -1,0 +1,27 @@
+[
+    {
+        "question": "Show all customers",
+        "sql": "SELECT * FROM customers;",
+        "timestamp": "2026-07-16 13:29:17"
+    },
+    {
+        "question": "give all males",
+        "sql": "SELECT * FROM customers WHERE gender = 'male';",
+        "timestamp": "2026-07-16 13:29:43"
+    },
+    {
+        "question": "give customer whose name starts with r",
+        "sql": "SELECT * FROM customers WHERE name LIKE 'R%';",
+        "timestamp": "2026-07-16 13:30:25"
+    },
+    {
+        "question": "Show all customers",
+        "sql": "SELECT * FROM customers;",
+        "timestamp": "2026-07-16 13:30:29"
+    },
+    {
+        "question": "what is self attention",
+        "sql": "SELECT * FROM customers;",
+        "timestamp": "2026-07-16 14:48:03"
+    }
+]

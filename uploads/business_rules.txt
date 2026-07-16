@@ -1,0 +1,25 @@
+AI Retail Business Rules
+
+1. Active Customer
+An active customer is a customer who has placed at least one order within the last 90 days.
+
+2. Revenue
+Revenue is calculated as:
+Revenue = Quantity × Unit Price
+
+3. High Value Customer
+A customer whose total spending exceeds ₹50,000.
+
+4. Order Status
+Completed - Order delivered successfully.
+Pending - Order not yet delivered.
+Cancelled - Order cancelled by customer.
+
+5. Top Product
+A product is considered a top product if its revenue contribution exceeds 10% of total company revenue.
+
+6. Customer Churn
+A customer is considered churned if they have not placed any order in the last 180 days.
+
+7. Average Order Value (AOV)
+AOV = Total Revenue / Number of Orders
