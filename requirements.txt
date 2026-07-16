@@ -7,3 +7,5 @@ tiktoken
 streamlit
 pandas
 sqlalchemy
+python-dotenv
+langchain-text-splitters
